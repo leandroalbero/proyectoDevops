@@ -1,9 +1,0 @@
-﻿{
-  "agentId": 2,
-  "agentName": "8750H",
-  "poolId": 1,
-  "poolName": "Default",
-  "serverUrl": "https://pipelines.actions.githubusercontent.com/YG6tzd9DviRWrGur6QmImXt9pffYI2rFiiMg2e3aL9xQmlvMsB",
-  "gitHubUrl": "https://github.com/leandroalbero/proyectoDevops",
-  "workFolder": "_work"
-}

@@ -4,12 +4,18 @@ import (
     "fmt"
     "net/http"
 )
-func hello(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "hola,")
+func handler(w http.ResponseWriter, r *http.Request) {
+    keys, ok := r.URL.Query()["key"]
+    if !ok || len(keys[0]) < 1{
+        fmt.Fprintf(w,"Faltan parámetros en la URL")
+        return
+    }
+    key := keys[0]
+    fmt.Fprintf(w,"Bienvenido, ")
+    fmt.Fprintf(w,string(key))
 }
 
 func main() {
-
-    http.HandleFunc("/", hello)
+    http.HandleFunc("/", handler)
     http.ListenAndServe(":80", nil)
 }

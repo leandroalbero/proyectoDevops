@@ -30,10 +30,12 @@ jobs:
             dep ensure
         fi
         go get -u golang.org/x/lint/golint
-      
+
     - name: Run golangci-lint
+      uses: actions/checkout@v2
       uses: golangci/golangci-lint-action@v1.2.1
-      
+      with:
+        version: v1.29
     - name: Build
       run: go build -v .
 

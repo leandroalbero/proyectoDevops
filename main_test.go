@@ -1,34 +1,10 @@
 package main
 
 import (
-	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 )
-
-func __TestHandler(t *testing.T) {
-	testText := "Bienvenido, testing"
-	http.HandleFunc("/", handler)
-	go func() {
-		err := http.ListenAndServe(":80", nil)
-		if err != nil {
-			t.Error()
-		}
-	}()
-	resp, err := http.Get("http://127.0.0.1:80/?key=testing")
-	if err != nil {
-		t.Error()
-	}
-	defer resp.Body.Close()
-	responseData, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		t.Error()
-	}
-	if string(responseData) != testText {
-		t.Error()
-	}
-}
 
 func TestHealthCheckHandler(t *testing.T) {
 	// Create a request to pass to our handler. We don't have any query parameters for now, so we'll

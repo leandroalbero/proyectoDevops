@@ -39,5 +39,4 @@ jobs:
       run: go build -v .
 
     - name: Test and coverage
-      run: go test -coverprofile=coverage.out ./...
-      run: go tool cover -func=coverage.out | tee -a cov_formatted.out
+      run: go test -coverprofile=coverage.out ./... ; go tool cover -func=coverage.out | tee -a cov_formatted.out

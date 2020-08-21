@@ -18,7 +18,7 @@ func TestHandler(t *testing.T){
 	if err != nil{
 		t.Error()
 	}
-	defer resp.Body.Close()
+	//defer resp.Body.Close()
 	responseData, err := ioutil.ReadAll(resp.Body)
 	if err != nil{
 		t.Error()

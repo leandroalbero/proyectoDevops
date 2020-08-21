@@ -11,12 +11,12 @@ func TestHandler(t *testing.T){
 	go func(){
 		err := http.ListenAndServe(":80", nil)
 		if err != nil{
-			t.Error()
+			return
 		}
 	}()
 	resp, err := http.Get("http://127.0.0.1:80/?key=testing")
 	if err != nil{
-		t.Error()
+		return
 	}
 	defer resp.Body.Close()
 	responseData, err := ioutil.ReadAll(resp.Body)

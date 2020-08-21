@@ -34,7 +34,7 @@ jobs:
       with:
         version: v1.29
     - name: Build
-      run: go build -v . -o main
+      run: go build -v -o main
     - name: Upload result
       uses: actions/upload-artifact@v2
       with:

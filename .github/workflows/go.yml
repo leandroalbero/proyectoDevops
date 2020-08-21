@@ -29,7 +29,11 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         fi
-
+        go get -u golang.org/x/lint/golint
+      
+    - name: Run golangci-lint
+      uses: golangci/golangci-lint-action@v1.2.1
+      
     - name: Build
       run: go build -v .
 

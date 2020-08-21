@@ -41,7 +41,7 @@ jobs:
         name: buildResult
         path: main
     - name: Test and coverage
-      run: go test -coverprofile=coverage.txt
+      run: go test 
     - name: Upload result
       uses: actions/upload-artifact@v2
       with:

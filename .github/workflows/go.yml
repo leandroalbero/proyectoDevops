@@ -38,8 +38,9 @@ jobs:
       run: go build -v .
 
     - name: Test and coverage
+      run: |
+        go test -coverprofile=coverage.txt
       uses: actions/upload-artifacts@v2
-      run: go test -coverprofile=coverage.txt
       with:
         name: coverageReport
         path: coverage.txt

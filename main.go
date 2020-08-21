@@ -12,7 +12,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
     }
     key := keys[0]
     fmt.Fprintf(w,"Bienvenido, ")
-    fmt.Fprintf(w,key)
+    fmt.Fprintf(w,"%s",key)
 }
 
 func main() {

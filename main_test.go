@@ -8,7 +8,12 @@ import (
 func TestHandler(t *testing.T){
 	testText := "Bienvenido, testing"
 	http.HandleFunc("/", handler)
-	go http.ListenAndServe(":80", nil)
+	go func(){
+		err := http.ListenAndServe(":80", nil)
+		if err != nil{
+			t.Error()
+		}
+	}()
 	resp, err := http.Get("http://127.0.0.1:80/?key=testing")
 	if err != nil{
 		t.Error()

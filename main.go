@@ -1,7 +1,8 @@
 package main
 
 import (
-	"fmt"
+	"fmt" 
+	"log"
 	"net/http"
 )
 
@@ -17,9 +18,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/saludo", handler)
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/", fs)
 	err := http.ListenAndServe(":80", nil)
 	if err != nil {
-		return
+		log.Fatal(err)
 	}
 }
